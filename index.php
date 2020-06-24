@@ -14,9 +14,11 @@ if(!defined('ABSPATH'))
 }
 
 add_action("admin_menu","addMenu");
-function addMenu()
+
+	function addMenu()
 {
- 
+  // add_menu_page('Footer Text title', 'Footer Settings', 'manage_options',
+  // 'footer_setting_page', 'footer_text_admin_page');
     add_menu_page("footer","footer",4,"footer","examplefooter",'dashicons-networking');
 }
 function examplefooter()

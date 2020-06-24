@@ -3,20 +3,20 @@ if(!defined('ABSPATH'))
 {
     exit;
 }
-    global $chk;
-    global $chk1;
+    global $variable1;
+    global $variable2;
     if(isset($_POST['wphw_submit'])){
             wphw_opt();
     }
     function wphw_opt(){
-        $hellotxt = $_POST['footertextname'];
-        $hellotxt1 = $_POST['footerlinkname'];
-        global $chk;
-        if( get_option('footer_text') != trim($hellotxt)){
-            $chk = update_option( 'footer_text', trim($hellotxt));
+        $text1 = $_POST['footertextname'];
+        $text2 = $_POST['footerlinkname'];
+        global $variable1;
+        if( get_option('footer_text') != trim($text1)){
+            $variable1= update_option( 'footer_text', trim($text1));
         }
-        if( get_option('footer_link') != trim($hellotxt1)){
-          $chk1 = update_option( 'footer_link', trim($hellotxt1));
+        if( get_option('footer_link') != trim($text2)){
+          $variable1 = update_option( 'footer_link', trim($text2));
       }
     }
 ?>
@@ -24,7 +24,7 @@ if(!defined('ABSPATH'))
   <div id="icon-options-general" class="icon32"> <br>
   </div>
   <h2>Footer Settings</h2>
-  <?php if(isset($_POST['wphw_submit']) && ($chk || $chk1)):?>
+  <?php if(isset($_POST['wphw_submit']) && ($variable1 || $variable2)):?>
   <div id="message" class="updated below-h2">
     <p>Content updated successfully</p>
   </div>
@@ -37,7 +37,7 @@ if(!defined('ABSPATH'))
           <tr>
             <th scope="row">Footer name</th>
             <td><input type="text" name="footertextname" 
-value="<?php echo get_option('footer_text');?>" style="width:350px;color:white;" /></td>
+value="<?php echo get_option('footer_text');?>" style="width:350px;" /></td>
           </tr>
           <tr>
             <th scope="row">Footer Link</th>
